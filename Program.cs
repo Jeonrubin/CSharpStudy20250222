@@ -31,32 +31,44 @@ namespace ConsoleApp2
             // 군인인가요? (네/아니요) : 네
             // 연간 회원인가요? (네/아니요) : 네
             // 무료입장입니다.
-            int price = 10000; 
-            Console.Write("나이를 입력하세요. : ");
-            string ageInput = Console.ReadLine();
-            int value = int.Parse(ageInput);
-            Console.Write("군인인가요? (네/아니요) : ");
-            string army = Console.ReadLine();
-            Console.Write("연간 회원인가요? (네/아니요) : ");
-            string vip = Console.ReadLine();
 
-            if (value >= 4 && value <= 12)
-            {
-                price = 5000;
-            }
-            else if (value >= 13 && value <= 18)
-            {
-                price = 8000;
-            }
-            else if (value >= 19 && value <= 64)
-            {
-                price = 10000;
-            }
-            else
+            int price = 0;
+
+            Console.Write("나이를 입력하세요: ");
+            string ageInput = Console.ReadLine();
+            int age = int.Parse(ageInput);
+
+            Console.Write("군인인가요? (네/아니요): ");
+            string isArmy = Console.ReadLine();
+
+            Console.Write("연간 회원인가요? (네/아니요): ");
+            string isMember = Console.ReadLine();
+
+            // 무료 입장
+            if (age <= 3 || age >= 65 || isMember == "네")
             {
                 Console.WriteLine("무료입장입니다.");
             }
-            Console.WriteLine(price);
+            else
+            {
+                if (age >= 19 && age <= 64) //성인
+                {
+                    price = 10000; //성인 요금
+                }
+                else if (age >= 13 && age <= 18) //청소년
+                {
+                    price = 8000; //청소년 요금
+                }
+                else if (age >= 4 && age <= 12) //어린이
+                {
+                    price = 5000; //어린이 요금
+                }
+                if (isArmy == "네")
+                {
+                    price = price * 70 / 100; //30% 할인
+                }
+                Console.WriteLine($"입장료는 {price}원입니다.");
+            }
         }
     }
 }
