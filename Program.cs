@@ -6,68 +6,139 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            // 놀이동산 입장권
-            // 사용자로부터 나이, 군인 할인, 연관 회원 여부를 입력 받아서 입장 요금을 계산합니다.
-            // 무료입장 조건
-            // 1. 나이가 3세 이하
-            // 2. 나이가 65세 이상
-            // 3. 연간 회원
-
-            // 할인 적용
-            // 1. 군인일 경우 -> 30% 할인
-
-            // 일반 요금
-            // 성인(19~64세) : 10000원
-            // 청소년(13~18세) : 8000원
-            // 어린이(4~12세) : 5000원
+            // 구구단
+            // 2부터 9까지의 숫자 중 하나를 입력받아, 해당하는 구구단을 출력하세요
 
             // 출력 예시
-            // 나이를 입력 하세요 : 20
-            // 군인인가요? (네/아니요) : 네
-            // 연간 회원인가요? (네/아니요) : 아니요
-            // 입장료는 7000원입니다.
+            // 구구단을 출력할 숫자를 입력하세요 (2~9): 7
+            // 구구단 7단:
+            // 7 x 1 = 7
+            // 7 x 2 = 14
+            // 7 x 3 = 21
+            // 7 x 4 = 28
+            // 7 x 5 = 35
+            // 7 x 6 = 42
+            // 7 x 7 = 49
+            // 7 x 8 = 56
+            // 7 x 9 = 63
 
-            // 나이를 입력 하세요 : 20
-            // 군인인가요? (네/아니요) : 네
-            // 연간 회원인가요? (네/아니요) : 네
-            // 무료입장입니다.
-
-            int price = 0;
-
-            Console.Write("나이를 입력하세요: ");
-            string ageInput = Console.ReadLine();
-            int age = int.Parse(ageInput);
-
-            Console.Write("군인인가요? (네/아니요): ");
-            string isArmy = Console.ReadLine();
-
-            Console.Write("연간 회원인가요? (네/아니요): ");
-            string isMember = Console.ReadLine();
-
-            // 무료 입장
-            if (age <= 3 || age >= 65 || isMember == "네")
+            /*
+            Console.Write("구구단을 출력할 숫자를 입력하세요 (2~9): ");
+            String input = Console.ReadLine();
+            int inputValue = int.Parse(input);
+            Console.WriteLine($"구구단 {inputValue}단: ");
+            // 구구단 구현 로직
+            for (int i = 1; i < 10; i++)
             {
-                Console.WriteLine("무료입장입니다.");
+                Console.WriteLine($"{inputValue} x {i} = {inputValue * i}");
             }
-            else
+            */
+
+            // * 찍는 문제
+            // 문제 1 : 왼쪽 정렬된 직각 삼각형
+            /*
+            for (int i = 0; i < 5; i++)
             {
-                if (age >= 19 && age <= 64) //성인
+                for(int j = 0; j < i +1 ; j++)
                 {
-                    price = 10000; //성인 요금
+                    Console.Write("*");
                 }
-                else if (age >= 13 && age <= 18) //청소년
+                Console.WriteLine(" ");
+            }
+            // 문제 1-1 : 왼쪽 정렬된 상하 반전의 직각 삼각형
+            for (int i = 5; i > 0; i--)
+           {
+               for(int j = 0; j < i; j++)
+               {
+                   Console.Write("*");
+               }
+               Console.WriteLine(" ");
+           }
+            // 문제 2 : 오른쪽 정렬된 직각 삼각형
+
+            for (int i = 0; i < 5; i++)
+            {
+                for(int j = 0; j < 5 -i; j++)
                 {
-                    price = 8000; //청소년 요금
+                    Console.Write(" ");
                 }
-                else if (age >= 4 && age <= 12) //어린이
+                for(int k = 0; k <= i; k++)
                 {
-                    price = 5000; //어린이 요금
+                    Console.Write("*");
                 }
-                if (isArmy == "네")
+                Console.WriteLine(" ");
+            }
+            // 문제 3 : 피라미드(중앙 정렬)
+            
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 5; j > i; j--)
                 {
-                    price = price * 70 / 100; //30% 할인
+                    Console.Write(" ");
                 }
-                Console.WriteLine($"입장료는 {price}원입니다.");
+                for (int k = 0; k < i +1; k++)
+                {
+                    Console.Write("*");
+                }
+                for(int l = 5; l > 5 -i; l--)
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine(" ");
+            }
+            // 문제 4 : 다이아몬드 
+            for (int i = 0; i < 5; i+=2)
+            {
+                for (int j = 5; j > i; j-=2)
+                {
+                    Console.Write(" ");
+                }
+                for (int k = 0; k < i+1; k++)
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine(" ");
+            }
+            for (int l = 3; l > 0; l-=2)
+            {
+                for (int m = 5; m >= l; m-=2)
+                {
+                    Console.Write(" ");
+                }
+                for (int n = 0; n < l; n++)
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine(" ");
+            */
+            // 다이아몬드 심화
+            Console.Write("숫자를 입력해주세요 (홀수): ");
+            int num = int.Parse(Console.ReadLine());
+            
+            for (int i = 0; i < num; i += 2)
+            {
+                for (int j = num; j > i; j -= 2)
+                {
+                    Console.Write(" ");
+                }
+                for (int k = 0; k < i + 1; k++)
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine();
+            }
+
+            for (int l = num - 2; l > 0; l -= 2)
+            {
+                for (int m = num; m >= l; m -= 2)
+                {
+                    Console.Write(" ");
+                }
+                for (int n = 0; n < l; n++)
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine();
             }
         }
     }
